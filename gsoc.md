@@ -2,7 +2,7 @@
 layout: page
 title: GSoC
 site_nav_category_order: 300
-is_site_nav_category: true
+is_site_nav_category: false
 site_nav_category: gsoc
 ---
 

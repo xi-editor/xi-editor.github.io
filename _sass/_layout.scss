@@ -10,12 +10,12 @@
 .tac-site-title img {
   height: 36px;
   margin-right: 12px;
-  padding-left: 12px;
+  padding-left: 24px;
 }
 
 .tac-header {
   padding-top: 0px;
-  background-color: $color-primary-dark !important;
+  background-color: $color-primary-dark;
 }
 
 .header-content {
@@ -107,12 +107,12 @@
 }
 
 .tac-tab-navigation .mdl-navigation__link:hover {
-  border-bottom: 4px solid $color-accent;
+  border-bottom: 4px solid $color-header-fg;
 }
 
 // Ripples
 .tac-tab-navigation .mdl-navigation__link .mdl-ripple {
-  background-color: white;
+  background-color: $color-primary;
 }
 
 .tac-navigation .mdl-navigation__link {
@@ -125,7 +125,7 @@
 }
 
 .tac-tab-navigation .mdl-navigation__link--current {
-  border-bottom: 4px solid $color-accent;
+  border-bottom: 4px solid $color-header-fg;
 }
 
 .tac-navigation .mdl-navigation__link--current {
@@ -251,4 +251,26 @@ td {
   padding-top: 12px;
   font-size: 12px;
   background-color: transparent;
+}
+
+/* New stuff */
+
+.github-corner svg {
+    fill: $color-header-fg;
+}
+
+.logo-big {
+    margin-bottom: 32px;
+}
+
+.material-icons {
+    vertical-align: middle;
+}
+
+.mdl-button--outline {
+    color: $color-primary;
+
+    border: solid $color-primary 2px;
+
+    border-radius: 4px;
 }

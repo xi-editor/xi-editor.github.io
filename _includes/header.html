@@ -1,46 +1,27 @@
-<header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary tac-header">
-
-    <div class="mdl-layout__header-row tac-logo-row mdl-grid">
-        <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone mdl-cell--hide-tablet"></div>
-
-        <form class="header-content mdl-cell mdl-cell--8-col" action="https://www.google.com/search">
-            <!-- Expandable Textfield -->
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable textfield-demo">
-                <label class="mdl-button mdl-js-button mdl-button--icon" for="q">
-                    <i class="material-icons">search</i>
-                </label>
-                <div class="mdl-textfield__expandable-holder">
-                    <input class="mdl-textfield__input" type="text" name="q" id="q"/>
-                    <input type="hidden" name="sitesearch" value="{{ site.url }}{{ site.baseurl }}"/>
-                    <label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
-                </div>
-            </div>
-
-            <div class="mdl-layout-spacer"></div>
-
-            <a class="tac-site-title" href="{{ site.baseurl }}/">
-                <img src="{{ site.baseurl }}/assets/logo.png"/>
-                <span class="mdl-layout-title tac-title">
-            {{ site.title }}
-          </span>
-            </a>
-        </form>
-    </div>
-
-    <div class="mdl-layout__header-row scrollable-header-row mdl-layout--large-screen-only mdl-grid mdl-grid--no-spacing">
+<header class="mdl-layout__header mdl-layout__header--scroll tac-header" style="background:white;justify-content:center">
+    <a class="tac-site-title mdl-cell--hide-desktop" href="{{ site.baseurl }}/" style="padding-left:64px">
+        <svg height="32" viewBox="0 0 213.85427 164.08"><g fill="#24d06b"><path d="M0 164.08l42.52-79.539L.75 8.004h18.76l32.765 59.279 32.266-59.28h17.509L62.53 84.292l44.272 79.789h-19.76L52.526 102.3l-33.517 61.78H0zM139.818 164.08v-14.507h29.264V64.28H141.32V49.774h45.772v99.799h26.763v14.507h-74.036zm37.268-138.317q-5.252 0-9.004-3.752t-3.752-9.005q0-5.502 3.502-9.254Q171.584 0 177.086 0q5.253 0 9.005 4.002 4.002 3.752 4.002 9.004 0 5.253-4.002 9.005-3.752 3.752-9.005 3.752z"/></g></svg>
+    </a>
+    <div class="mdl-layout__header-row scrollable-header-row mdl-layout--large-screen-only mdl-grid mdl-grid--no-spacing" style="background:white">
+            {% include github-corner.html %}
         <div class="mdl-cell--hide-phone mdl-cell--hide-tablet mdl-cell mdl-cell--2-col"></div>
         <nav class="mdl-navigation tac-tab-navigation mdl-cell mdl-cell--8-col">
-
+            <a class="tac-site-title" href="{{ site.baseurl }}/">
+                <svg height="42" viewBox="0 0 213.85427 164.08"><g fill="#24d06b"><path d="M0 164.08l42.52-79.539L.75 8.004h18.76l32.765 59.279 32.266-59.28h17.509L62.53 84.292l44.272 79.789h-19.76L52.526 102.3l-33.517 61.78H0zM139.818 164.08v-14.507h29.264V64.28H141.32V49.774h45.772v99.799h26.763v14.507h-74.036zm37.268-138.317q-5.252 0-9.004-3.752t-3.752-9.005q0-5.502 3.502-9.254Q171.584 0 177.086 0q5.253 0 9.005 4.002 4.002 3.752 4.002 9.004 0 5.253-4.002 9.005-3.752 3.752-9.005 3.752z"/></g></svg>
+            </a>
+            <div class="mdl-layout-spacer"></div>
             {% assign nav_items = (site.pages | sort:"site_nav_category_order" %}
             {% for nav_item in nav_items %}
             {% if nav_item.is_site_nav_category %}
-            <a class="mdl-navigation__link mdl-js-ripple-effect{% if page.site_nav_category == nav_item.site_nav_category %} mdl-navigation__link--current{% endif %}"
-               href="{{ site.baseurl }}{{ nav_item.url }}">{{ nav_item.title }}
+            <a
+                class="mdl-navigation__link mdl-js-ripple-effect{% if page.site_nav_category == nav_item.site_nav_category %} mdl-navigation__link--current{% endif %}"
+            href="{{ site.baseurl }}{{ nav_item.url }}">{{ nav_item.title }}
                 <div class="mdl-ripple"></div>
             </a>
 
             {% endif %}
             {% endfor %}
+
         </nav>
     </div>
 </header>

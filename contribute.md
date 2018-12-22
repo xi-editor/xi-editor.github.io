@@ -2,7 +2,7 @@
 layout: page
 title: Contribute
 site_nav_category: contribute
-site_nav_category_order: 400
+site_nav_category_order: 4
 is_site_nav_category: true
 ---
 

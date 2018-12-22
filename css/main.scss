@@ -44,6 +44,7 @@ $on-laptop: 800px;
 @import "base";
 @import "layout";
 @import "syntax-highlighting";
+@import "home";
 
 /**
  * Copyright 2015 The xi-editor Authors.
@@ -174,7 +175,7 @@ a img {
 }
 
 .android-navigation .mdl-navigation__link:hover {
-  border-bottom: 4px solid #8bc34a;
+  border-bottom: 4px solid $color-header-fg;
 }
 
 .android-search-box {

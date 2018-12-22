@@ -1,0 +1,20 @@
+---
+layout: default
+title: Updates
+permalink: /updates.html
+site_nav_category_order: 3
+is_site_nav_category: true
+site_nav_category: updates
+---
+
+{% for post in site.posts %}
+<div class="post-preview">
+    <div class="post-preview-heading" style="display:flex;flex-direction:row;align-items:center">
+        <a href="{{ post.url }}" style="flex:1">
+            <h3>{{ post.title }}</h3>
+        </a>
+        <span>{{ post.date | date: "%m/%e/%y" }}</span>
+    </div>
+    <p>{{ post.description }}</p>
+</div>
+{% endfor %}

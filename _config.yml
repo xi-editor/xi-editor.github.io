@@ -1,9 +1,8 @@
-title: Xi-Editor
+title: Xi-editor
 description: >
   A modern editor with a backend written in Rust.
 
-baseurl: "/xi-editor"
-url: "http://abishov.com"
+baseurl: ""
 
 markdown: kramdown
 
@@ -13,3 +12,6 @@ plugins:
 
 exclude:
   - vendor
+
+sass:
+  style: compressed

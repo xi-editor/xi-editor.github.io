@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+{% include head.html %}
+
+<body class="mdl-base">
+<div class="tac-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    {% include drawer_nav_full.html %}
+    {% include github-corner.html %}
+    {% include header.html %}
+    <main class="mdl-layout__content docs-content-wrapper mdl-grid" style="padding:0">
+            <div class="mdl-grid docs-content-wrapper mdl-grid--no-spacing" style="justify-content:center;align-items: center;">
+                <div style="font-size:16px;" class="mdl-cell mdl-cell--8-col homepage-container">
+                    <img style="width:100%;max-width:1000px" src="{{ site.baseurl }}/assets/xi-mac.png"/>
+                    <div class="mdl-grid">
+                        {{content}}
+                    </div>
+                </div>
+            </div>
+        <div class="mdl-layout--small-screen-only">{% include footer.html %}</div>
+    </main>
+    <div class="mdl-layout--large-screen-only">{% include footer.html %}</div>
+</div>
+</body>
+</html>

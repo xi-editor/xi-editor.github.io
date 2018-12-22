@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Docs
-site_nav_category_order: 200
+site_nav_category_order: 2
 is_site_nav_category: true
 site_nav_category: docs
 ---
