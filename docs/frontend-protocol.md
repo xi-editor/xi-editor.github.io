@@ -584,7 +584,7 @@ measure_width [{"id": number, "strings": string[]}] <- {"id":0, "result":[[28.0,
 
 Asks the frontend to measure the display widths (the width when rendered and presented on screen) of a group of strings. The frontend should return an array of arrays, one for each item in the input array, containing the widths of each of that item's strings when rendered with the style indicated by that items id argument.
 
-These widths are used to determine how to [calculate line breaks](https://xi-editor.github.io/xi-editor/docs/rope_science_05.html) and other attributes that depend on the behaviour of the client's text rendering system.
+These widths are used to determine how to [calculate line breaks](https://xi-editor.io/docs/rope_science_05.html) and other attributes that depend on the behaviour of the client's text rendering system.
 
 ---
 

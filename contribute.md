@@ -29,7 +29,7 @@ follow the [Code of Conduct](https://github.com/xi-editor/xi-editor/blob/master/
 ### Very first steps
 
 Not sure where to start? If you haven't already, take a look at the
-[docs](http://xi-editor.github.io/xi-editor/docs.html) to get a better
+[docs](http://xi-editor.io/docs.html) to get a better
 sense of the project. Read through some issues and some open PRs, to
 get a sense for the habits of existing contributors. Drop by the #xi-editor
 channel on [Zulip](https://xi.zulipchat.com) to follow
