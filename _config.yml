@@ -9,6 +9,7 @@ markdown: kramdown
 plugins:
   - octopress-autoprefixer
   - jekyll-redirect-from
+  - jekyll-feed
 
 exclude:
   - vendor

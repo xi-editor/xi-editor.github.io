@@ -253,8 +253,9 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
+  jekyll-feed
   octopress-autoprefixer
   therubyracer
 
 BUNDLED WITH
-   1.17.1
+   1.17.3
