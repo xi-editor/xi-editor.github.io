@@ -16,3 +16,18 @@ exclude:
 
 sass:
   style: compressed
+
+# podcast specific stuff:
+
+podcast_url: https://xi-editor.io
+podcast_album_art: /assets/xi-day-cover.png
+podcast_title: Xi Day
+podcast_owner: The xi-editor contributors
+podcast_email: admin@xi-editor.io
+podcast_category: Technology
+podcast_subcategory_one: Software How-To
+podcast_explicit: "no"
+podcast_author: The xi-editor contributors
+podcast_description: Conversations around Rust and the xi-editor project(s).
+podcast_summary: Every few weeks, Raph Levien and Colin Rofls have a catchup conversation related to the development of xi-editor and related Rust projects.
+podcast_subtitle: Technical chat about the details of building a modern text editor.
