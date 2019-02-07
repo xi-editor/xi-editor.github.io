@@ -364,7 +364,7 @@ valid next occurrence. Supported options for `modify_selection` are:
 * `none`: the selection is not modified
 * `set`: the next/previous match will be set as the new selection
 * `add`: the next/previous match will be added to the current selection
-* `add_remove_current`: the previously added selection will be removed and the next/previous
+* `add_removing_current`: the previously added selection will be removed and the next/previous
 match will be added to the current selection
 
 Selects the next/previous occurrence matching the search query.
@@ -473,8 +473,11 @@ The guarantee on `id` is that it is not currently in use in any lines in the
 view. However, in practice, it will probably just count up. It can also be
 assumed to be small, so using it as an index into a dense array is reasonable.
 
-There are two reserved style IDs, so new style IDs will begin at 2. Style ID 0
-is reserved for selections and ID 1 is reserved for find results.
+**Deprecated:** There are two reserved style IDs, so new style IDs will begin at 2.
+Style ID 0 is reserved for selections and ID 1 is reserved for find results. Reserved
+style IDs will be supported for backward compatibility for a limited time. Instead,
+selections and find matches are now represented as `annotations`.
+
 
 #### scroll_to
 
@@ -493,11 +496,20 @@ update
   ops: Op[]
   view-id: string
   pristine: bool
+  annotations: AnnotationSlice[]
 
 interface Op {
   op: "copy" | "skip" | "invalidate" | "update" | "ins"
   n: number  // number of lines affected
   lines?: Line[]  // only present when op is "update" or "ins"
+  ln?: number // the logical number for this line; null if this line is a soft break
+}
+
+interface AnnotationSlice {
+  type: "find" | "selection" | ...
+  ranges: [[number, number, number, number]]  // start_line, start_col, end_line, end_col
+  payloads: [{}]    // can be any json object or value
+  n: number // number of ranges
 }
 ```
 
@@ -516,7 +528,11 @@ their count; and the editing operations may be more efficiently done in-place
 than by copying from the old state to the new].
 
 The "copy" op appends the `n` lines `[old_ix .. old_ix + n]` to the new lines
-array, and increments `old_ix` by `n`.
+array, and increments `old_ix` by `n`. Additionally, "copy" includes the `ln`
+field; this represents the new logical line number (that is, the 'real' line
+number, ignoring word wrap) of the first line to be copied. **Note:** if the
+first line to be copied is itself a wrapped line, the `ln` number will need to
+be incremented in order to be correct for the first 'real' line.
 
 The "skip" op increments `old_ix` by `n`.
 
@@ -537,6 +553,7 @@ present in the old state is copied at most once to the new state).
 ```
 interface Line {
   text?: string  // present when op is "update"
+  ln?: number // the logical/'real' line number for this line.
   cursor?: number[]  // utf-8 code point offsets, in increasing order
   styles?: number[]  // length is a multiple of 3, see below
 }
@@ -575,6 +592,11 @@ interface Line {
   styles?: number[]  // length is a multiple of 3, see below
 }
 ```
+
+"annotations" are used to associate some type data with some document regions. For
+example, annotations are used to represent selections and find highlights.
+The [Annotations RFC](https://github.com/xi-editor/xi-editor/blob/master/rfcs/2018-11-23-annotations.md)
+provides a detailed description of the API.
 
 #### measure_width
 
