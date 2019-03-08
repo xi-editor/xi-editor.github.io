@@ -25,4 +25,5 @@ Earlier this week, we did our first test episode, which turned out well enough (
   curves](https://github.com/linebender/kurbo)
 - [Data Oriented GUI in Rust by Raph Levien - Bay Area Rust Meetup
   (YT)](https://www.youtube.com/watch?v=4YTfxresvS8)
+- [Backend requirements for rendering SVG](https://github.com/RazrFalcon/resvg/blob/master/docs/backend_requirements.md)
 - [xi.zulipchat.com](http://xi.zulipchat.com)
