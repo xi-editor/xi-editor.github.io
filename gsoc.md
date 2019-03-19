@@ -17,6 +17,7 @@ List of project ideas for Google Summer of Code 2019:
  - [Benchmarks and tracking performance regressions](#benchmarks-and-tracking-performance-regressions)
  - [Binary size CI tool](#binary-size-ci-tool)
  - [xi-trace cleanup](#xi-trace-cleanup)
+ - [High performance piet backend](#high-performance-piet-backend)
 
 --------
 
@@ -86,3 +87,20 @@ The xi-trace crate (potentially renamed) should be available through crates.io, 
 
 ### Difficulty
 Medium
+
+--------
+
+## High performance piet backend
+
+Rust, GPU
+
+@raphlinus
+
+### Develop a GPU-accelerated backend for piet
+The [piet](https://github.com/linebender/piet) graphics abstraction has Direct2D as a backend on Windows, but lacks a performant backend on other systems. This effort grew out of xi-win, and has the potential to become the basis of a cross-platform text rendering subsystem for xi front-ends including xi-mac (possibly replacing the current text rendering, which is based on OpenGL). A promising approach is a combination of [WebRender](https://github.com/servo/webrender) and [PathFinder](https://github.com/pcwalton/pathfinder), but more integration is required. A significant part of the problem is performance evaluation and verifying correct rendering, but a prototype could be built.
+
+### Outcome
+The ideal outcome would be a usable GPU-accelerated piet backend, which would be competitive in performance with the existing xi-mac text rendering plane, and could be used for other applications including the fledgling [druid](https://github.com/xi-editor/druid) UI toolkit.
+
+### Difficulty
+Medium-high
